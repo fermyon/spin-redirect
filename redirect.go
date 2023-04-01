@@ -7,5 +7,10 @@ import (
 
 func main() {
 	dest := os.Getenv("DESTINATION")
-	fmt.Printf("status: 302\nlocation: %s\n\n", dest)
+	status := os.Getenv("STATUS")
+	if status != "" {
+		fmt.Printf("status: %s\nlocation: %s\n\n", status, dest)
+	} else {
+		fmt.Printf("status: 302\nlocation: %s\n\n", dest)
+	}
 }
